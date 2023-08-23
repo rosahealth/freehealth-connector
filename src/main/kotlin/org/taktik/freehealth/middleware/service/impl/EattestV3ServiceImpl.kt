@@ -478,6 +478,8 @@ class EattestV3ServiceImpl(private val stsService: STSService, private val keyDe
                 this.detail = BlobMapper.mapBlobTypefromBlob(blob)
             }
 
+            log.info("SOAP Request is: " + ConnectorXmlUtils.toString(sendAttestationRequest))
+
             val sendAttestationResponse = freehealthEattestService.sendAttestion(samlToken, sendAttestationRequest)
 
             val blobType = sendAttestationResponse.`return`.detail
