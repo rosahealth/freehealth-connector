@@ -81,7 +81,7 @@ public abstract class AbstractWsSender {
          conn = scf.createConnection();
          SOAPMessage messageRequest = request.getMessage();
          URL url = generateEndpoint(request);
-         boolean isEAttest = url.toString().equals("https://services-acpt.ehealth.fgov.be/MyCareNet/eAttest/v2");
+         boolean isEAttest = url.toString().toLowerCase().contains("eattest");
          if(isEAttest) {
             log.info("#####################################################################################");
             log.info("ENDPOINT: " + url);
